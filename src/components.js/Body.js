@@ -5,6 +5,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { adduser, removeUser } from "../utils.js/userSlice";
 import Browser from "./Browser";
+import GPTSearch from "./GPTSearch";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,10 @@ const Body = () => {
     {
       path: "/browser",
       element: <Browser />,
+    },
+    {
+      path: "/browser/gpt",
+      element: <GPTSearch />,
     },
   ]);
 

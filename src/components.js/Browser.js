@@ -24,6 +24,10 @@ const Browser = () => {
       });
   };
 
+  const HandleGPTSearch = () => {
+    navigate("/browser/gpt");
+  };
+
   return (
     <div>
       <div className="w-full h-20 absolute   bg-gradient-to-b from-black flex items-center justify-between px-4 py-1 z-10">
@@ -31,6 +35,12 @@ const Browser = () => {
           <img src={NETFLIX_LOGO} alt="homepage logo" />
         </div>
         <div className="flex txt-xl text-white items-center ">
+          <button
+            className=" text-xl py-2 px-4 bg-red-400 rounded-lg"
+            onClick={HandleGPTSearch}
+          >
+            GPT Search
+          </button>
           {user && <h1 className="text-xl mx-7">{user.displayName}</h1>}
           <button className=" text-xl py-2 px-4" onClick={handleSignout}>
             Sign-Out

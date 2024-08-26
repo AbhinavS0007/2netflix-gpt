@@ -1,6 +1,9 @@
 
 
 export const  NETFLIX_LOGO = "https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+
+export const OPENAI_API_KEY = "AIzaSyA6Lq4YPQMTnQ0IR8TNl2SKb7fsEmFYSAw";
+
 export const RecentlyAddedMovies_Options = {
 
 
@@ -33,6 +36,18 @@ export const PopularMovies_Options = {
 		'x-rapidapi-host': 'imdb8.p.rapidapi.com'
 	}
 };
+
+export const Search_Options = {
+	
+
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': '79ea382de8msh52b739c87a17cf6p1f24c7jsna617248742a8',
+		'x-rapidapi-host': 'imdb188.p.rapidapi.com'
+	}
+
+
+}
 
 
 

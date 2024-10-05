@@ -43,7 +43,7 @@ export const Search_Options = {
 	method: 'GET',
 	headers: {
 		'x-rapidapi-key': '79ea382de8msh52b739c87a17cf6p1f24c7jsna617248742a8',
-		'x-rapidapi-host': 'imdb188.p.rapidapi.com'
+		'x-rapidapi-host': 'online-movie-database.p.rapidapi.com'
 	}
 
 

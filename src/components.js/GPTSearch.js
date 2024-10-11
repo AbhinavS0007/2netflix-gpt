@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import { Search_Options } from "../utils.js/constents";
-import SearchMovieList from "./SearchMovieList";
+// import SearchMovieList from "./SearchMovieList";
 
 const GPTSearch = () => {
   const Search_Value = React.useRef(null);
   const [SuggestedMovies, setSuggestedMovies] = useState([]);
   const { GoogleGenerativeAI } = require("@google/generative-ai");
-  const genAI = new GoogleGenerativeAI(
-    "AIzaSyDjkua3rZ2hucqD20J6AVInI6YyNc5IHeY"
-  );
+  const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const gptSearchfun = async (movie) => {
@@ -18,7 +16,6 @@ const GPTSearch = () => {
     try {
       const response = await fetch(Search_url, Search_Options);
       const result = await response.json();
-      // console.log(result.d[0])
       return result.d[0];
     } catch (error) {
       console.error("this is search result error");
@@ -30,6 +27,7 @@ const GPTSearch = () => {
     const Search_Curr_Value = Search_Value.current
       ? Search_Value.current.value
       : "";
+
     if (Search_Curr_Value) {
       try {
         const prompt =
@@ -55,11 +53,10 @@ const GPTSearch = () => {
         console.error("Error fetching content:", error);
       }
     } else {
-      console.log("Please enter a value");
+      alert("Please enter a value");
     }
   };
   if (!SuggestedMovies) return null;
-
 
   return (
     <div>
@@ -79,16 +76,36 @@ const GPTSearch = () => {
             Search
           </button>
         </div>
-        <div className="w-44 h-96 relative flex  mx-4 " > 
-      {SuggestedMovies.length > 0 ? (<img className="m-4 " src={SuggestedMovies[0].i.imageUrl}></img>) : ("")}
-      {SuggestedMovies.length > 0 ? (<img className="m-4" src={SuggestedMovies[1].i.imageUrl}></img>) : ("")}
-      {SuggestedMovies.length > 0 ? (<img className="m-4" src={SuggestedMovies[2].i.imageUrl}></img>) : ("")}
-      {SuggestedMovies.length > 0 ? (<img className="m-4" src={SuggestedMovies[3].i.imageUrl}></img>) : ("")}
-      {SuggestedMovies.length > 0 ? (<img className="m-4" src={SuggestedMovies[4].i.imageUrl}></img>) : ("")}
-
+        <div className="w-full mx-8 justify-center">
+          <div className="h-96 relative flex  ">
+            {SuggestedMovies.length > 0 ? (
+              <img className="m-4 " src={SuggestedMovies[0].i.imageUrl}></img>
+            ) : (
+              ""
+            )}
+            {SuggestedMovies.length > 0 ? (
+              <img className="m-4" src={SuggestedMovies[1].i.imageUrl}></img>
+            ) : (
+              ""
+            )}
+            {SuggestedMovies.length > 0 ? (
+              <img className="m-4" src={SuggestedMovies[2].i.imageUrl}></img>
+            ) : (
+              ""
+            )}
+            {SuggestedMovies.length > 0 ? (
+              <img className="m-4" src={SuggestedMovies[3].i.imageUrl}></img>
+            ) : (
+              ""
+            )}
+            {SuggestedMovies.length > 0 ? (
+              <img className="m-4" src={SuggestedMovies[4].i.imageUrl}></img>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 };

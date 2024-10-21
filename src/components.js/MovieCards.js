@@ -1,10 +1,9 @@
 import React from "react";
 
-const MovieCards = (props) => {
-//   console.log(props.movieIMG);
+const MovieCards = ({ MovieIMG }) => {
   return (
-    <div className="w-48  pr-4">
-      <img  src={props.movieIMG} alt="movieimg"></img>
+    <div className="w-44  pr-4">
+      <img  src={MovieIMG} alt="movieimg"></img> 
     </div>
   );
 };
